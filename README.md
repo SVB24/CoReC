@@ -4,7 +4,7 @@ A sophisticated AI-powered education app that helps students plan their careers 
 
 ## Features
 
-### 🎯 Core Functionality
+### Core Functionality
 - **School Recommendations**: Get personalized school lists (Safety, Target, Reach) based on current GPA and target schools
 - **GPA Gap Analysis**: Understand exactly how much you need to improve your GPA for each school
 - **Course Recommendations**: Get specific course recommendations for your target programs
@@ -12,7 +12,7 @@ A sophisticated AI-powered education app that helps students plan their careers 
 - **Extracurricular Guidance**: Recommendations to strengthen your application profile
 - **Test Prep Strategy**: Personalized test preparation timeline and strategy
 
-### 🔄 Agent Architecture
+### Agent Architecture
 
 #### Serial Agents (Sequential Execution)
 1. **School Recommendation Agent**: Analyzes current GPA vs. target school requirements
