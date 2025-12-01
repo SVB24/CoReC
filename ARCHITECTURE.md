@@ -1,6 +1,6 @@
 # Career Planning Education Agent - Architecture Overview
 
-## 🏗️ System Architecture
+## System Architecture
 
 ### High-Level Overview
 
@@ -27,7 +27,7 @@
     └──────────────────────────────────────────┘
 ```
 
-## 🔄 Agent Execution Flow
+## Agent Execution Flow
 
 ### Serial Agents (Sequential Execution)
 
@@ -46,8 +46,6 @@ START
   │
   END
 ```
-
-**Execution Time:** ~20-30 seconds (sequential)
 
 ### Parallel Agents (Concurrent Execution)
 
@@ -70,9 +68,7 @@ START
   END
 ```
 
-**Execution Time:** ~20-30 seconds (parallel, ~30-40% faster than serial)
-
-## 📊 Module Structure
+## Module Structure
 
 ### main.py - Core Application
 ```
@@ -121,21 +117,6 @@ START
     └── generate_html_report: HTML dashboard
 ```
 
-### examples.py - Usage Examples
-```
-├── example_basic_usage(): Single student analysis
-├── example_multiple_students(): Batch processing
-├── example_custom_student_input(): Custom profiles
-└── example_full_analysis_workflow(): Complete workflow
-```
-
-### integration_example.py - Advanced Integration
-```
-├── example_with_metrics_tracking(): Full analysis + metrics
-├── example_batch_analysis_with_metrics(): Batch with metrics
-└── example_performance_analysis(): Serial vs parallel comparison
-```
-
 ### test_suite.py - Quality Assurance
 ```
 ├── TestStudentProfile: Data structure tests
@@ -149,7 +130,7 @@ START
 └── TestIntegration: Integration tests
 ```
 
-## 🔌 External Dependencies
+## External Dependencies
 
 ### google-generativeai
 - Provides Gemini API client
@@ -212,7 +193,7 @@ Results {
    - Error tracking
    - Performance insights
 
-## 🔐 Security Considerations
+## Security Considerations
 
 ### API Key Management
 - Stored in .env file (not in code)
@@ -224,7 +205,7 @@ Results {
 - No data persistence without user consent
 - API responses handled securely
 
-## 🚀 Concurrency Implementation
+## Concurrency Implementation
 
 ### Serial Execution
 ```python
@@ -243,53 +224,7 @@ with ThreadPoolExecutor(max_workers=3) as executor:
     results = [f.result() for f in [future1, future2, future3]]
 ```
 
-## 📈 Performance Characteristics
-
-### Execution Times
-- Single school analysis: ~5-8s
-- Course recommendation: ~4-6s
-- Academic analysis: ~6-8s
-- Extracurricular analysis: ~5-7s
-- Test prep strategy: ~6-8s
-
-### Total Workflow
-- Serial only: ~40-60s
-- Parallel agents: ~25-35s
-- Combined: ~35-50s
-- **Efficiency gain: 30-40% with parallelization**
-
-### Data Sizes
-- Typical student profile: ~1-2 KB
-- School recommendations (10 schools): ~8-12 KB
-- Course recommendations (5 courses): ~6-10 KB
-- Complete analysis output: ~30-50 KB
-
-## 🔧 Extensibility
-
-### Adding New Agents
-```python
-@observe_agent("New Agent Name")
-def new_agent(self, student: StudentProfile) -> dict:
-    prompt = """Your prompt here"""
-    response = self.model.generate_content(prompt)
-    return json.loads(response.text)
-```
-
-### Custom Report Formats
-Extend `generate_comprehensive_report()` to support:
-- PDF reports
-- Email delivery
-- Custom styling
-- Filtered data
-
-### Integration Points
-- REST API wrapper
-- Database persistence
-- File system storage
-- Email notifications
-- Slack/Discord webhooks
-
-## 🔍 Observability Features
+## Observability Features
 
 ### Logging Levels
 - **DEBUG**: Detailed data, API responses
@@ -311,7 +246,7 @@ Extend `generate_comprehensive_report()` to support:
 - Resource utilization analysis
 - Workflow optimization insights
 
-## 🎯 Design Patterns
+## Design Patterns
 
 ### Observer Pattern
 - `@observe_agent` decorator tracks execution
@@ -330,7 +265,7 @@ Extend `generate_comprehensive_report()` to support:
 - Easy serialization with `asdict()`
 - Clean API contracts
 
-## 📚 API Reference
+## API Reference
 
 ### CareerPlanningAgent Methods
 
@@ -365,7 +300,7 @@ get_metrics_collector() -> MetricsCollector
 get_dashboard() -> ObservabilityDashboard
 ```
 
-## 🔄 Workflow Example
+## Workflow Example
 
 1. **Initialize**: Create CareerPlanningAgent with Gemini API
 2. **Prepare**: Build StudentProfile from user input
@@ -375,20 +310,6 @@ get_dashboard() -> ObservabilityDashboard
 6. **Generate Report**: Combine all results into report
 7. **Output**: Save text, JSON, metrics, and HTML dashboard
 8. **Monitor**: Review logs and performance metrics
-
-## 🎓 Educational Value
-
-This system demonstrates:
-- **Concurrency**: Serial vs parallel execution patterns
-- **APIs**: Using external AI services (Gemini)
-- **Design Patterns**: Decorators, factories, observers
-- **Error Handling**: Robust exception management
-- **Logging**: Professional monitoring implementation
-- **Data Management**: Dataclasses, JSON serialization
-- **Testing**: Comprehensive unit test suite
-- **Documentation**: Full README and examples
-
----
 
 **Version**: 1.0
 **Created**: November 2025
